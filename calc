@@ -1,0 +1,64 @@
+package com.company;
+
+import java.util.Locale;
+import java.util.Scanner;
+public class calc{
+    public static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        scanner.useLocale(Locale.UK);
+        double result = 1;
+        double x = readDouble();
+        String t = readString();
+        double y = readDouble();
+        getResultIf(x,y,t,result);
+        System.out.println(result);
+    }
+    public static String readString() {
+        return scanner.next();}
+    public static double readDouble() {
+        return scanner.nextDouble();}
+    public static double getResultTernar (double x, double y, String t, double result){
+        result = t == "-" ? x - y : t == "+" ? x + y :  t == "/" ?  x / y : t == "*" ? x * y : 0;
+        return result;
+    }
+    public static double getResultIf (double x, double y, String t, double result) {
+        if (t == "+") {
+            result = x + y;
+        } else {
+            if (t == "-") {
+                result = x - y;
+            } else {
+                if (t == "/") {
+                    result = x / y;
+                } else {
+                    if (t == "*") {
+                        result = x * y;
+                    } else {
+                        System.out.println("Неверный знак");
+                    }
+                }
+            }
+        }
+
+        return result;
+
+    }
+    public static void   getResultCase (double x, double y,String t) {
+        switch (t) {
+            case "-" :
+                result = x - y;
+                break;
+            case "+":
+                result = x + y;
+                break;
+            case "/":
+                result = x / y;
+                break;
+            case "*":
+                result = x * y;
+                break;
+        }
+        System.out.println(result);
+    }
+}
